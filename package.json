@@ -1,0 +1,32 @@
+{
+  "name": "lobster-miniprogram",
+  "version": "1.0.0",
+  "description": "OpenClaw 使用教程微信小程序（支持多平台：微信+QQ+ 支付宝）",
+  "main": "main.js",
+  "scripts": {
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "dev:mp-qq": "uni -p mp-qq",
+    "dev:mp-alipay": "uni -p mp-alipay",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "build:mp-qq": "uni build -p mp-qq",
+    "build:mp-alipay": "uni build -p mp-alipay"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-app-plus": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-components": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-mp-weixin": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-mp-qq": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-mp-alipay": "^3.0.0-4010520250520001",
+    "vue": "^3.4.21",
+    "uview-ui": "^3.0.0",
+    "prismjs": "^1.29.0"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.8",
+    "@dcloudio/uni-automator": "^3.0.0-4010520250520001",
+    "@dcloudio/uni-cli-shared": "^3.0.0-4010520250520001",
+    "@dcloudio/vite-plugin-uni": "^3.0.0-4010520250520001",
+    "vite": "^5.2.8"
+  }
+}

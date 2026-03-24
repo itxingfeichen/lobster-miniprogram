@@ -1,0 +1,12 @@
+{
+  "name": "uview-ui",
+  "version": "3.0.0",
+  "description": "uView UI 3.x - 多平台快速开发 UI 框架",
+  "main": "index.js",
+  "keywords": ["uview", "ui", "uni-app"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijry/uview"
+  },
+  "homepage": "https://www.uviewui.com/"
+}

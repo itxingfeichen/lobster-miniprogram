@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "OpenClaw 教程",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/index",
+      "style": {
+        "navigationBarTitleText": "学习中心",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/code/index",
+      "style": {
+        "navigationBarTitleText": "代码库",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/mine/index",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "OpenClaw 教程",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/icons/home.png",
+        "selectedIconPath": "static/icons/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/learn/index",
+        "iconPath": "static/icons/learn.png",
+        "selectedIconPath": "static/icons/learn-active.png",
+        "text": "学习"
+      },
+      {
+        "pagePath": "pages/code/index",
+        "iconPath": "static/icons/code.png",
+        "selectedIconPath": "static/icons/code-active.png",
+        "text": "代码"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "static/icons/mine.png",
+        "selectedIconPath": "static/icons/mine-active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
