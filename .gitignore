@@ -34,10 +34,11 @@ project.private.config.json
 *.temp
 .cache/
 
-# 截图和调试文件
-*.png
+# 截图和调试文件（不追踪根目录下的图片）
 *.jpg
 *.jpeg
 *.gif
-!static/images/.gitkeep
-!static/icons/.gitkeep
+
+# 允许 static 目录下的图片资源
+!static/images/**
+!static/icons/**
