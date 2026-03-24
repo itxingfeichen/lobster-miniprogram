@@ -1,0 +1,305 @@
+/**
+ * Mock 教程数据
+ * 包含 OpenClaw 相关的教程内容
+ */
+
+const tutorials = [
+  {
+    id: 't001',
+    title: 'OpenClaw 环境搭建指南',
+    summary: '从零开始搭建 OpenClaw 开发环境，包括 Node.js 安装、OpenClaw CLI 配置和首次运行。',
+    category: 'getting-started',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 3562,
+    likeCount: 287,
+    createdAt: '2026-01-15',
+    tags: ['环境搭建', '入门', 'CLI', 'Node.js'],
+    content: '# OpenClaw 环境搭建指南\n\n## 前言\n\nOpenClaw 是一个强大的 AI Agent 平台，它允许你创建和管理智能体来完成各种任务。本教程将带你从零开始搭建 OpenClaw 的开发环境。\n\n## 前置要求\n\n在开始之前，请确保你的系统满足以下要求：\n\n- **操作系统**：macOS、Linux 或 Windows（WSL2）\n- **Node.js**：v18.0.0 或更高版本\n- **npm** 或 **pnpm**：推荐使用 pnpm\n\n## 步骤一：安装 Node.js\n\n如果你还没有安装 Node.js，推荐使用 nvm 来管理版本：\n\n```shell\n# 安装 nvm\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash\n\n# 安装 Node.js 22\nnvm install 22\nnvm use 22\nnode -v  # 应输出 v22.x.x\n```\n\n## 步骤二：安装 OpenClaw\n\n```shell\n# 安装 pnpm\nnpm install -g pnpm\n\n# 全局安装 OpenClaw\npnpm add -g openclaw\n\n# 验证安装\nopenclaw --version\n```\n\n## 步骤三：初始化工作空间\n\n```shell\nmkdir my-openclaw-workspace\ncd my-openclaw-workspace\nopenclaw init\n```\n\n初始化后你会看到 AGENTS.md、SOUL.md、TOOLS.md 等文件。\n\n## 步骤四：启动 Gateway\n\n```shell\nopenclaw gateway start\nopenclaw gateway status\n```\n\n恭喜！你已经成功搭建了 OpenClaw 开发环境。'
+  },
+  {
+    id: 't002',
+    title: 'Hello World：你的第一个 OpenClaw Agent',
+    summary: '手把手教你创建第一个 OpenClaw Agent，理解 Agent 的基本结构和运行方式。',
+    category: 'getting-started',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 2891,
+    likeCount: 234,
+    createdAt: '2026-01-18',
+    tags: ['Hello World', '入门', 'Agent', '第一个项目'],
+    content: '# Hello World：你的第一个 OpenClaw Agent\n\n## 简介\n\n在本教程中，我们将创建一个简单的 Hello World Agent。它能够响应用户的问候并进行简单的对话。\n\n## 创建 AGENTS.md\n\nAGENTS.md 是 Agent 的核心配置文件：\n\n```markdown\n# AGENTS.md - 我的第一个 Agent\n\n## 🎯 你的角色\n\n你是一个友好的助手 Agent，名叫 HelloBot。\n\n### 权限范围\n| 权限 | 状态 |\n|------|------|\n| **聊天** | ✅ 开启 |\n| **文件读写** | ✅ 开启 |\n| **Shell 命令** | ❌ 关闭 |\n```\n\n## 创建 SOUL.md\n\n```markdown\n# SOUL.md - HelloBot 的灵魂\n\n## 核心信念\n**友善是最好的开始。**\n\n## 你的性格\n- 热情、耐心、幽默\n```\n\n## 运行你的 Agent\n\n```shell\nopenclaw gateway status\nopenclaw chat \"你好，HelloBot！\"\n```\n\n你应该能看到 Agent 热情的回应。恭喜你完成了第一个 OpenClaw Agent！'
+  },
+  {
+    id: 't003',
+    title: 'AGENTS.md 配置文件完全解读',
+    summary: '深入理解 AGENTS.md 的每个配置项，掌握 Agent 行为定制的核心方法。',
+    category: 'getting-started',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 2456,
+    likeCount: 198,
+    createdAt: '2026-01-22',
+    tags: ['AGENTS.md', '配置', '入门', '文档'],
+    content: '# AGENTS.md 配置文件完全解读\n\n## 什么是 AGENTS.md？\n\nAGENTS.md 是 OpenClaw 中最重要的配置文件之一。它使用 Markdown 格式定义 Agent 的角色、能力、权限和工作流程。\n\n## 文件结构\n\n### 1. 角色定义\n角色定义是 Agent 行为的基础，清晰的角色描述能让 Agent 更好地理解自己应该做什么。\n\n### 2. 核心能力\n列出 Agent 的核心能力，帮助 Agent 判断哪些任务在其能力范围内。\n\n### 3. 权限范围\n权限表格让 Agent 清楚自己能做什么、不能做什么，这对安全性至关重要。\n\n### 4. 工作流程\n定义 Agent 处理任务的标准流程，确保行为一致性和可预测性。\n\n## 最佳实践\n\n1. **角色要具体** - 避免泛泛的描述\n2. **能力要聚焦** - 每个 Agent 专注于一个领域\n3. **权限要最小化** - 只开启必要的权限\n4. **流程要清晰** - 步骤明确，减少歧义\n\nAGENTS.md 是你与 Agent 之间的契约，写好它是成功的一半。'
+  },
+  {
+    id: 't004',
+    title: 'OpenClaw 基本命令速查',
+    summary: '快速掌握 OpenClaw CLI 的常用命令，提升日常操作效率。',
+    category: 'getting-started',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 4123,
+    likeCount: 356,
+    createdAt: '2026-01-25',
+    tags: ['CLI', '命令', '速查', '入门'],
+    content: '# OpenClaw 基本命令速查\n\n## Gateway 管理\n\n```shell\nopenclaw gateway start    # 启动\nopenclaw gateway stop     # 停止\nopenclaw gateway restart  # 重启\nopenclaw gateway status   # 查看状态\n```\n\n## 会话管理\n\n```shell\nopenclaw chat \"你的消息\"      # 开始对话\nopenclaw sessions list        # 查看会话列表\nopenclaw sessions show <id>   # 查看会话详情\n```\n\n## 技能管理\n\n```shell\nclawhub search weather        # 搜索技能\nclawhub install @openclaw/weather  # 安装技能\nclawhub list                  # 查看已安装\nclawhub update @openclaw/weather   # 更新技能\n```\n\n## 工作空间管理\n\n```shell\nopenclaw init      # 初始化工作空间\nopenclaw info      # 查看信息\nopenclaw validate  # 验证配置\n```\n\n## 实用技巧\n\n- Tab 补全：大多数命令支持 Tab 键自动补全\n- 帮助信息：在任何命令后加 --help 查看详细用法\n- 日志调试：使用 --verbose 查看详细日志'
+  },
+  {
+    id: 't005',
+    title: '创建你的第一个多功能 Agent',
+    summary: '学习如何创建一个具备文件操作、网络搜索等多种能力的实用 Agent。',
+    category: 'getting-started',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 1987,
+    likeCount: 167,
+    createdAt: '2026-02-01',
+    tags: ['Agent', '实战', '多功能', '入门'],
+    content: '# 创建你的第一个多功能 Agent\n\n## 目标\n\n创建一个能够读写文件、搜索网络、执行命令和管理待办的 Agent。\n\n## 设计 AGENTS.md\n\n```markdown\n# AGENTS.md - 多功能助手\n\n## 🎯 你的角色\n你是多功能助手 Agent。\n\n### 权限范围\n| 权限 | 状态 |\n|------|------|\n| 文件读写 | ✅ 开启 |\n| 网络搜索 | ✅ 开启 |\n| Shell 命令 | ✅ 开启 |\n| 浏览器 | ❌ 关闭 |\n```\n\n## 配置 SOUL.md\n\n```markdown\n# SOUL.md\n## 核心信念\n**效率优先，安全第一。**\n```\n\n## 配置 TOOLS.md\n\n```markdown\n# TOOLS.md\n## 可用工具\n- read/write/edit - 文件操作\n- exec - Shell 命令\n- web_search - 网络搜索\n- web_fetch - 网页内容提取\n```\n\n## 测试\n\n```shell\nopenclaw chat \"帮我创建一个 TODO.md 文件\"\nopenclaw chat \"搜索最新的 Node.js 版本\"\nopenclaw chat \"查看当前目录下的文件\"\n```'
+  },
+  {
+    id: 't006',
+    title: 'OpenClaw Agent 架构深度解析',
+    summary: '深入了解 OpenClaw 的 Agent 架构，理解主 Agent、子 Agent 的协作机制。',
+    category: 'core-concepts',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 2134,
+    likeCount: 189,
+    createdAt: '2026-02-05',
+    tags: ['架构', 'Agent', '核心概念', '协作'],
+    content: '# OpenClaw Agent 架构深度解析\n\n## 架构概览\n\nOpenClaw 采用分层 Agent 架构：\n\n1. **主 Agent（Main Agent）** - 任务协调和分配\n2. **子 Agent（Sub Agent）** - 具体任务执行\n3. **工具层（Tool Layer）** - 底层能力提供\n\n## 主 Agent 的角色\n\n```\n用户请求 → 主 Agent 解析 → 任务拆分 → 子 Agent 分配 → 结果汇总 → 返回用户\n```\n\n## 子 Agent 的生命周期\n\n1. **创建** - 主 Agent 通过 subagents 工具创建\n2. **初始化** - 接收任务描述和上下文\n3. **执行** - 使用工具完成具体任务\n4. **报告** - 将结果自动推送回主 Agent\n5. **销毁** - 任务完成后被回收\n\n## 通信机制\n\nAgent 之间通过推送（Push-based）机制通信，子 Agent 完成任务后自动通知主 Agent，不需要轮询检查状态。\n\n## 实际案例\n\n假设用户请求"帮我写一个天气查询功能"：主 Agent 识别为技术开发任务 → 创建 coder 子 Agent → coder 编写代码 → 自动报告结果 → 主 Agent 汇总展示。'
+  },
+  {
+    id: 't007',
+    title: '工具系统：让 Agent 拥有超能力',
+    summary: '全面了解 OpenClaw 的工具系统，包括内置工具和自定义工具的使用方法。',
+    category: 'core-concepts',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1876,
+    likeCount: 156,
+    createdAt: '2026-02-08',
+    tags: ['工具系统', '核心概念', '内置工具', '扩展'],
+    content: '# 工具系统：让 Agent 拥有超能力\n\n## 什么是工具系统？\n\n工具（Tools）是 Agent 与外部世界交互的接口。没有工具，Agent 只能对话；有了工具，可以读写文件、执行命令、搜索网络等。\n\n## 内置工具\n\n### 文件操作\n- read - 读取文件\n- write - 写入文件\n- edit - 编辑文件\n\n### 系统操作\n- exec - 执行命令\n- process - 进程管理\n\n### 网络操作\n- web_search - 搜索\n- web_fetch - 网页提取\n- browser - 浏览器控制\n\n### Agent 管理\n- subagents - 子 Agent 管理\n- message - 消息发送\n\n## 工具调用流程\n\n```\nAgent 决策 → 选择工具 → 构造参数 → 调用工具 → 处理结果 → 继续决策\n```\n\n## 工具策略配置\n\n通过 TOOLS.md 配置工具使用策略，控制 Agent 可以使用哪些工具，这是确保安全性的重要机制。'
+  },
+  {
+    id: 't008',
+    title: '会话管理与上下文控制',
+    summary: '了解 OpenClaw 的会话机制，学会管理对话上下文和会话状态。',
+    category: 'core-concepts',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1543,
+    likeCount: 132,
+    createdAt: '2026-02-12',
+    tags: ['会话管理', '上下文', '核心概念', '状态'],
+    content: '# 会话管理与上下文控制\n\n## 会话的概念\n\n会话（Session）是 Agent 与用户交互的基本单位。每个会话维护独立的上下文。\n\n## 上下文注入\n\nOpenClaw 自动将以下文件注入到上下文：\n1. AGENTS.md - 角色和能力\n2. SOUL.md - 人格和风格\n3. TOOLS.md - 工具指南\n4. USER.md - 用户偏好\n5. IDENTITY.md - Agent 身份\n\n## 上下文管理技巧\n\n### 控制上下文长度\n- 使用 read 的 offset/limit 参数\n- 避免加载大文件\n- 使用摘要传递信息\n\n### 跨会话状态\n- 使用文件系统持久化\n- 利用 USER.md 记录偏好\n- 通过工作空间共享信息\n\n## 多渠道支持\n\nOpenClaw 支持 QQ Bot、飞书、命令行和 Web 界面。每个渠道创建独立会话，共享同一工作空间。'
+  },
+  {
+    id: 't009',
+    title: '记忆系统：让 Agent 记住你',
+    summary: '探索 OpenClaw 的记忆机制，了解如何让 Agent 具备长期记忆能力。',
+    category: 'core-concepts',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1789,
+    likeCount: 167,
+    createdAt: '2026-02-15',
+    tags: ['记忆系统', '长期记忆', '核心概念', '个性化'],
+    content: '# 记忆系统：让 Agent 记住你\n\n## 记忆层次\n\n### 1. 短期记忆（会话内）\n当前会话的对话历史，会话结束后失效。\n\n### 2. 工作记忆（文件系统）\n通过 AGENTS.md、SOUL.md 等文件持久化，跨会话可用。\n\n### 3. 用户记忆（USER.md）\n记录用户的偏好、技术栈、项目背景等信息。Agent 可以主动更新。\n\n### 4. 项目记忆（工作空间文件）\n项目文档、代码、配置等，Agent 可以主动记录重要信息。\n\n## 最佳实践\n\n1. **及时记录** - 用户提供的重要信息立即写入\n2. **结构化存储** - 使用清晰的格式\n3. **定期整理** - 清理过时信息\n4. **隐私尊重** - 只记录必要信息\n\n记忆系统让 Agent 从"工具"进化为"伙伴"。'
+  },
+  {
+    id: 't010',
+    title: '技能机制：Agent 的即插即用能力',
+    summary: '了解 OpenClaw 的技能（Skill）系统，学会安装和使用社区技能。',
+    category: 'core-concepts',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 2012,
+    likeCount: 178,
+    createdAt: '2026-02-18',
+    tags: ['技能', 'Skill', '核心概念', 'ClawHub'],
+    content: '# 技能机制：Agent 的即插即用能力\n\n## 什么是技能？\n\n技能是 OpenClaw 的扩展机制。安装技能后，Agent 获得特定领域的专业能力。\n\n## 技能结构\n\n```\nmy-skill/\n├── SKILL.md      # 技能描述\n├── scripts/      # 脚本文件\n├── references/   # 参考资料\n└── assets/       # 资源文件\n```\n\n## 发现与安装\n\n```shell\nclawhub search \"weather\"\nclawhub install @openclaw/weather\nclawhub list\nclawhub update @openclaw/weather\n```\n\n## 自动激活\n\nOpenClaw 自动扫描技能描述，用户请求匹配时自动激活对应技能。\n\n## 创建自定义技能\n\n可以创建技能并发布到 ClawHub，让社区共享使用。技能系统让 OpenClaw 的能力无限扩展。'
+  },
+  {
+    id: 't011',
+    title: 'SOUL.md 人格配置艺术',
+    summary: '学习如何通过 SOUL.md 赋予 Agent 独特的人格特质和行为风格。',
+    category: 'core-concepts',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 2345,
+    likeCount: 212,
+    createdAt: '2026-02-20',
+    tags: ['SOUL.md', '人格', '配置', '个性化'],
+    content: '# SOUL.md 人格配置艺术\n\n## SOUL.md 的作用\n\nAGENTS.md 定义"能做什么"，SOUL.md 定义"怎么做"。它塑造 Agent 的性格、价值观和行为风格。\n\n## 核心组成\n\n### 1. 核心信念\n决策的基石，影响模糊场景下的选择。\n\n### 2. 性格特质\n定义 Agent 的行为风格。\n\n### 3. 决策原则\n在不同场景下的行为指导。\n\n## 不同风格示例\n\n### 严谨技术风\n```markdown\n## 核心信念\n代码是给人读的，顺便给机器执行。\n## 性格\n严谨、注重细节、用数据说话\n```\n\n### 温暖教练风\n```markdown\n## 核心信念\n每个人都能学会编程。\n## 性格\n温暖、有耐心、善于用比喻\n```\n\n## 调优技巧\n\n1. 具体而非抽象\n2. 场景化描述\n3. 与 AGENTS.md 风格匹配\n4. 根据效果持续调整\n\n好的 SOUL.md 让 Agent 有温度。'
+  },
+  {
+    id: 't012',
+    title: '自定义 Agent 开发实战',
+    summary: '从需求分析到最终部署，完整的自定义 Agent 开发流程。',
+    category: 'agent-dev',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1654,
+    likeCount: 145,
+    createdAt: '2026-02-22',
+    tags: ['自定义Agent', '开发实战', 'Agent开发'],
+    content: '# 自定义 Agent 开发实战\n\n## 项目目标\n\n创建一个代码审查 Agent：分析代码质量、检查常见问题、提供改进建议。\n\n## 编写 AGENTS.md\n\n```markdown\n# AGENTS.md - 代码审查 Agent\n\n## 🎯 你的角色\n代码审查专家 Agent。\n\n## 审查标准\n1. 代码风格 - 命名规范、格式一致性\n2. 逻辑正确性 - 边界条件、错误处理\n3. 性能 - 时间复杂度、内存使用\n4. 安全性 - 输入验证\n5. 可维护性 - 代码重复度\n```\n\n## 测试\n\n```shell\nopenclaw chat \"请审查 src/utils/helper.js\"\nopenclaw chat \"请审查 src/ 目录下所有 JS 文件\"\n```\n\n## 报告格式\n\n```markdown\n# 代码审查报告\n## 文件：src/utils/helper.js\n### 🔴 必须修复\n- 第 15 行：未处理 Promise rejection\n### 🟡 建议改进\n- 第 8 行：变量命名不够语义化\n### ✅ 优点\n- 函数职责单一\n```'
+  },
+  {
+    id: 't013',
+    title: '多 Agent 协作：团队式任务处理',
+    summary: '学习如何设计多 Agent 协作系统，让不同专长的 Agent 协同完成复杂任务。',
+    category: 'agent-dev',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 1432,
+    likeCount: 134,
+    createdAt: '2026-02-25',
+    tags: ['多Agent', '协作', '高级', '架构设计'],
+    content: '# 多 Agent 协作：团队式任务处理\n\n## 协作架构\n\n```\n       主 Agent (协调者)\n           │\n    ┌──────┼──────┐\n    │      │      │\nproduct  coder  health\n```\n\n## 协作实战\n\n假设用户说"我需要一个天气查询小程序"：\n\n1. 阶段一：主 Agent → product_manager → 输出 PRD\n2. 阶段二：主 Agent → coder → 根据 PRD 编写代码\n3. 阶段三：主 Agent 整合输出，向用户呈现\n\n## 注意事项\n\n1. **上下文传递** - 给子 Agent 足够背景\n2. **避免循环依赖** - Agent 之间不互相等待\n3. **错误处理** - 失败时有降级方案\n4. **结果验证** - 主 Agent 检查输出质量\n\n多 Agent 协作是 OpenClaw 的高级特性。'
+  },
+  {
+    id: 't014',
+    title: '工具集成开发指南',
+    summary: '学习如何为 Agent 集成外部工具和 API，扩展 Agent 的能力边界。',
+    category: 'agent-dev',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 1234,
+    likeCount: 112,
+    createdAt: '2026-03-01',
+    tags: ['工具集成', 'API', '高级开发', '扩展'],
+    content: '# 工具集成开发指南\n\n## 集成方式\n\n### 方式一：通过技能脚本\n在技能 scripts 目录编写脚本，Agent 通过 exec 调用。\n\n### 方式二：通过 MCP Server\nMCP（Model Context Protocol）是标准化的工具集成协议：\n\n```javascript\nconst { Server } = require(\"@modelcontextprotocol/sdk\");\nconst server = new Server({ name: \"my-tool\", version: \"1.0.0\" });\nserver.addTool({\n  name: \"get_stock_price\",\n  description: \"获取股票价格\",\n  parameters: { symbol: { type: \"string\" } },\n  handler: async ({ symbol }) => {\n    const price = await fetchStockPrice(symbol);\n    return { price, currency: \"USD\" };\n  }\n});\nserver.start();\n```\n\n### 方式三：通过浏览器自动化\n使用 browser 工具进行网页自动化。\n\n## 安全考虑\n\n1. API 密钥用环境变量存储\n2. 严格验证输入\n3. 避免频繁调用外部 API\n4. 优雅处理服务不可用'
+  },
+  {
+    id: 't015',
+    title: '使用浏览器工具进行网页自动化',
+    summary: '学习如何使用 OpenClaw 的 browser 工具实现网页自动化操作。',
+    category: 'agent-dev',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 1567,
+    likeCount: 134,
+    createdAt: '2026-03-10',
+    tags: ['浏览器', '自动化', 'browser', '高级'],
+    content: '# 使用浏览器工具进行网页自动化\n\n## 基本操作\n\n### 打开网页\n```javascript\nbrowser({ action: \"open\", url: \"https://example.com\" })\n```\n\n### 获取快照\n```javascript\nbrowser({ action: \"snapshot\", refs: \"aria\" })\n```\n\n### 点击元素\n```javascript\nbrowser({ action: \"act\", kind: \"click\", ref: \"e12\" })\n```\n\n### 输入文本\n```javascript\nbrowser({ action: \"act\", kind: \"type\", ref: \"e15\", text: \"Hello\" })\n```\n\n## Chrome 扩展\n\n1. 安装 OpenClaw Browser Relay 扩展\n2. 在目标页面点击扩展图标\n3. Agent 即可操作该标签页\n\n## 注意事项\n\n1. 遵守网站规则\n2. 控制请求频率\n3. 错误重试机制\n4. 不在不受信任网站输入敏感信息'
+  },
+  {
+    id: 't016',
+    title: 'Canvas 画布：可视化 Agent 输出',
+    summary: '学习使用 OpenClaw Canvas 功能创建可视化的 Agent 输出界面。',
+    category: 'agent-dev',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1123,
+    likeCount: 98,
+    createdAt: '2026-03-15',
+    tags: ['Canvas', '可视化', 'UI', 'Agent开发'],
+    content: '# Canvas 画布：可视化 Agent 输出\n\n## 什么是 Canvas？\n\nCanvas 是 OpenClaw 的可视化输出功能，允许 Agent 呈现 HTML/CSS/JavaScript 构建的交互式界面。\n\n## 基本用法\n\n### 呈现内容\n```javascript\ncanvas({ action: \"present\", url: \"data:text/html,<h1>Hello!</h1>\" })\n```\n\n### 执行 JavaScript\n```javascript\ncanvas({ action: \"eval\", javaScript: \"document.title = \\\"Updated\\\"\" })\n```\n\n### 获取快照\n```javascript\ncanvas({ action: \"snapshot\" })\n```\n\n## 实战：数据看板\n\n```html\n<div class=\"dashboard\">\n  <div class=\"card\"><h3>今日学习</h3><div>3 篇</div></div>\n  <div class=\"card\"><h3>代码片段</h3><div>12 个</div></div>\n  <div class=\"card\"><h3>完成进度</h3><div>67%</div></div>\n</div>\n```\n\n## A2UI\n\nA2UI 允许 Agent 通过 JSONL 指令增量更新 Canvas 内容。Canvas 让 Agent 输出不再局限于文字。'
+  },
+  {
+    id: 't017',
+    title: 'OpenClaw 本地部署完全指南',
+    summary: '详细的本地部署教程，包括各种操作系统的配置方法和常见问题解决。',
+    category: 'deployment',
+    difficulty: 'beginner',
+    author: '龙虾教程组',
+    readCount: 3210,
+    likeCount: 278,
+    createdAt: '2026-03-05',
+    tags: ['本地部署', '安装', '配置', '部署'],
+    content: '# OpenClaw 本地部署完全指南\n\n## 支持的操作系统\n\n- macOS 12+ (Intel / Apple Silicon)\n- Ubuntu 20.04+\n- Debian 11+\n- Windows (WSL2)\n\n## macOS 部署\n\n```shell\nbrew install node@22\nnpm install -g pnpm\npnpm add -g openclaw\nmkdir ~/openclaw-workspace && cd ~/openclaw-workspace\nopenclaw init\nopenclaw gateway start\n```\n\n## Linux 部署\n\n```shell\ncurl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -\nsudo apt-get install -y nodejs\nnpm install -g pnpm\npnpm add -g openclaw\n```\n\n## 验证部署\n\n```shell\nopenclaw gateway status\nopenclaw chat \"你好，OpenClaw！\"\n```\n\n## 常见问题\n\n- Gateway 启动失败？检查端口：`lsof -i :3000`\n- 模型调用超时？检查网络和 API 密钥\n\n本地部署是最快的上手方式。'
+  },
+  {
+    id: 't018',
+    title: '云端部署：让 Agent 7x24 在线',
+    summary: '将 OpenClaw 部署到云服务器，实现 Agent 的全天候服务。',
+    category: 'deployment',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 1876,
+    likeCount: 156,
+    createdAt: '2026-03-08',
+    tags: ['云端部署', '服务器', '运维', '部署'],
+    content: '# 云端部署：让 Agent 7x24 在线\n\n## 服务器要求\n\n| 配置 | 最低 | 推荐 |\n|------|------|------|\n| CPU | 1 核 | 2 核+ |\n| 内存 | 1 GB | 2 GB+ |\n| 磁盘 | 20 GB | 40 GB+ |\n\n## 部署步骤\n\n### 1. 准备服务器\n```shell\nsudo apt update && sudo apt upgrade -y\nsudo apt install -y curl git build-essential\n```\n\n### 2. 安装 OpenClaw\n```shell\ncurl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -\nsudo apt-get install -y nodejs\nnpm install -g pnpm && pnpm add -g openclaw\n```\n\n### 3. 配置 systemd 服务\n```ini\n[Unit]\nDescription=OpenClaw Gateway\nAfter=network.target\n\n[Service]\nType=simple\nUser=openclaw\nExecStart=openclaw gateway start --foreground\nRestart=always\n\n[Install]\nWantedBy=multi-user.target\n```\n\n### 4. Nginx 反向代理 + SSL\n\n云端部署让 Agent 成为 7x24 在线助手。'
+  },
+  {
+    id: 't019',
+    title: 'OpenClaw 安全最佳实践',
+    summary: '了解 OpenClaw 的安全机制，学习如何安全地配置和运行 Agent。',
+    category: 'deployment',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 1890,
+    likeCount: 167,
+    createdAt: '2026-03-12',
+    tags: ['安全', '最佳实践', '权限', '部署'],
+    content: '# OpenClaw 安全最佳实践\n\n## 安全原则\n\n1. **最小权限** - 只给必要权限\n2. **人类监督** - 关键操作需确认\n3. **透明可审计** - 操作可追溯\n4. **安全优先** - 安全 > 任务完成\n\n## 权限控制\n\n在 AGENTS.md 中明确权限范围。\n\n## API 密钥管理\n\n```shell\nexport OPENAI_API_KEY=\"sk-xxxxx\"\necho \"*.env\" >> .gitignore\n```\n\n## 网络安全\n\n```shell\nsudo ufw allow 22/tcp\nsudo ufw allow 80/tcp\nsudo ufw allow 443/tcp\nsudo ufw enable\n```\n\n## 定期安全检查\n\n使用 healthcheck 技能进行安全审计。安全是 Agent 可靠运行的基石。'
+  },
+  {
+    id: 't020',
+    title: 'OpenClaw 与 QQ Bot 集成指南',
+    summary: '将 OpenClaw Agent 接入 QQ Bot，让 Agent 通过 QQ 为用户服务。',
+    category: 'deployment',
+    difficulty: 'intermediate',
+    author: '龙虾教程组',
+    readCount: 2567,
+    likeCount: 223,
+    createdAt: '2026-03-20',
+    tags: ['QQ Bot', '集成', '聊天机器人', '部署'],
+    content: '# OpenClaw 与 QQ Bot 集成指南\n\n## 前置准备\n\n1. 运行 OpenClaw 的服务器\n2. QQ 开放平台开发者账号\n3. 已创建的 QQ 机器人应用\n\n## 配置步骤\n\n```shell\nopenclaw config set qqbot.appId \"your-app-id\"\nopenclaw config set qqbot.appSecret \"your-app-secret\"\nopenclaw config set qqbot.token \"your-token\"\nopenclaw gateway restart\n```\n\n## 消息处理流程\n\n```\nQQ 消息 → Gateway → Agent 处理 → 回复 → QQ 用户\n```\n\n## 富媒体支持\n\n- 文本消息：普通对话\n- 图片：`<qqimg>` 标签\n- 语音：`<qqvoice>` 标签\n- 文件：`<qqfile>` 标签\n\n## 功能扩展\n\n接入后可实现定时提醒、天气查询、代码助手等功能。QQ Bot 集成让 Agent 触手可及。'
+  },
+  {
+    id: 't021',
+    title: 'Node 节点：跨设备 Agent 协作',
+    summary: '了解 OpenClaw 的节点系统，实现手机、电脑等多设备间的 Agent 协作。',
+    category: 'core-concepts',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 987,
+    likeCount: 89,
+    createdAt: '2026-03-18',
+    tags: ['节点', 'Node', '跨设备', '协作'],
+    content: '# Node 节点：跨设备 Agent 协作\n\n## 什么是节点？\n\n节点（Node）代表一个配对的设备。通过节点系统，Agent 可以跨设备操作。\n\n## 节点能力\n\n### 📸 相机控制\n```javascript\nnodes({ action: \"camera_snap\", node: \"my-phone\", facing: \"back\" })\n```\n\n### 📍 位置获取\n```javascript\nnodes({ action: \"location_get\", node: \"my-phone\" })\n```\n\n### 🔔 通知推送\n```javascript\nnodes({ action: \"notify\", node: \"my-phone\", title: \"提醒\", body: \"任务完成\" })\n```\n\n## 应用场景\n\n1. 远程监控\n2. 位置追踪\n3. 跨设备通知\n4. 多屏协作\n\n节点系统让 OpenClaw 从单机工具变成跨设备智能平台。'
+  },
+  {
+    id: 't022',
+    title: '从零搭建 Agent 技能商店',
+    summary: '学习如何创建、发布和管理 Agent 技能，为社区贡献力量。',
+    category: 'agent-dev',
+    difficulty: 'advanced',
+    author: '龙虾教程组',
+    readCount: 876,
+    likeCount: 78,
+    createdAt: '2026-03-22',
+    tags: ['技能商店', 'ClawHub', '发布', '社区'],
+    content: '# 从零搭建 Agent 技能商店\n\n## 创建技能\n\n```shell\nmkdir my-awesome-skill\ncd my-awesome-skill\ntouch SKILL.md\nmkdir scripts references assets\n```\n\n## SKILL.md 模板\n\n```markdown\n# My Awesome Skill\n\n## 描述\n一句话描述功能。\n\n## 触发条件\n何时激活。\n\n## 使用方法\n具体操作说明。\n\n## 依赖\n- Node.js 18+\n```\n\n## 测试技能\n\n```shell\ncp -r my-awesome-skill ~/.openclaw/workspace/skills/\nopenclaw gateway restart\nopenclaw chat \"触发技能的消息\"\n```\n\n## 发布到 ClawHub\n\n```shell\nclawhub login\nclawhub publish ./my-awesome-skill\n```\n\n## 质量清单\n\n- [ ] SKILL.md 描述清晰\n- [ ] 包含使用示例\n- [ ] 脚本经过测试\n- [ ] 无敏感信息\n- [ ] 依赖声明完整\n\n为社区贡献技能，让 OpenClaw 生态更丰富！'
+  }
+]
+
+const categories = [
+  { id: 'getting-started', name: '入门教程', icon: '🚀', count: 5 },
+  { id: 'core-concepts', name: '核心概念', icon: '🧠', count: 6 },
+  { id: 'agent-dev', name: 'Agent 开发', icon: '🛠️', count: 6 },
+  { id: 'deployment', name: '部署配置', icon: '☁️', count: 5 }
+]
+
+module.exports = {
+  tutorials,
+  categories
+}
