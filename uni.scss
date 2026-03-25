@@ -1,44 +1,90 @@
 /* 全局样式变量 */
 
-/* 主题色 */
-$uni-color-primary: #3cc51f;
-$uni-color-success: #4cd964;
-$uni-color-warning: #f0ad4e;
-$uni-color-error: #dd524d;
+// ========== 品牌色 ==========
+$brand-primary: #3cc51f;        // 主色（绿色）
+$brand-primary-light: #e8f8e0;  // 主色浅
+$brand-primary-dark: #2d9617;   // 主色深
+$brand-secondary: #ff6b35;      // 辅助色（龙虾橙）
+$brand-secondary-light: #fff0e8;
 
-/* 文字颜色 */
-$uni-text-color: #333333;
+// ========== 功能色 ==========
+$color-success: #3cc51f;
+$color-warning: #ff9900;
+$color-error: #ee0a24;
+$color-info: #1989fa;
+
+// ========== 灰阶 ==========
+$gray-1: #f8f8f8;   // 页面背景
+$gray-2: #f2f2f2;   // 分割线/次要背景
+$gray-3: #e6e6e6;   // 边框
+$gray-4: #cccccc;   // 禁用文字
+$gray-5: #999999;   // 次要文字
+$gray-6: #666666;   // 正文文字
+$gray-7: #333333;   // 标题文字
+$gray-8: #1a1a1a;   // 强调文字
+
+// ========== 字体大小 ==========
+$font-xs: 20rpx;
+$font-sm: 24rpx;
+$font-base: 28rpx;
+$font-md: 30rpx;
+$font-lg: 32rpx;
+$font-xl: 36rpx;
+$font-xxl: 40rpx;
+$font-title: 44rpx;
+
+// ========== 间距 ==========
+$spacing-xs: 8rpx;
+$spacing-sm: 16rpx;
+$spacing-base: 24rpx;
+$spacing-md: 32rpx;
+$spacing-lg: 40rpx;
+$spacing-xl: 48rpx;
+
+// ========== 圆角 ==========
+$radius-sm: 8rpx;
+$radius-base: 12rpx;
+$radius-lg: 16rpx;
+$radius-xl: 24rpx;
+$radius-round: 999rpx;
+
+// ========== 阴影 ==========
+$shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+$shadow-base: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+
+// ========== 兼容 uni-app 原有变量 ==========
+$uni-color-primary: $brand-primary;
+$uni-color-success: $color-success;
+$uni-color-warning: $color-warning;
+$uni-color-error: $color-error;
+
+$uni-text-color: $gray-7;
 $uni-text-color-inverse: #ffffff;
-$uni-text-color-grey: #999999;
+$uni-text-color-grey: $gray-5;
 $uni-text-color-placeholder: #808080;
-$uni-text-color-disable: #c0c0c0;
+$uni-text-color-disable: $gray-4;
 
-/* 背景颜色 */
 $uni-bg-color: #ffffff;
-$uni-bg-color-grey: #f8f8f8;
+$uni-bg-color-grey: $gray-1;
 $uni-bg-color-hover: #f1f1f1;
+$uni-border-color: $gray-3;
 
-/* 边框颜色 */
-$uni-border-color: #e5e5e5;
-
-/* 尺寸变量 */
 $uni-spacing-sm: 8px;
 $uni-spacing-base: 15px;
 $uni-spacing-lg: 30px;
 
-/* 字体大小 */
 $uni-font-size-sm: 12px;
 $uni-font-size-base: 14px;
 $uni-font-size-lg: 16px;
 $uni-font-size-xl: 18px;
 
-/* 圆角 */
 $uni-border-radius-sm: 2px;
 $uni-border-radius-base: 5px;
 $uni-border-radius-lg: 10px;
 $uni-border-radius-circle: 50%;
 
-/* 代码高亮主题色 (PrismJS) */
+// ========== 代码高亮主题色 (PrismJS) ==========
 $code-bg-color: #f6f8fa;
 $code-text-color: #24292e;
 $code-keyword-color: #d73a49;
