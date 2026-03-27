@@ -29,7 +29,7 @@
   },
   "quickapp": {},
   "mp-weixin": {
-    "appid": "",
+    "appid": "wx1234567890abcdef",
     "setting": {
       "urlCheck": false,
       "es6": true,
@@ -45,7 +45,7 @@
   },
   "mp-alipay": {
     "usingComponents": true,
-    "appid": "",
+    "appid": "2021001117648888",
     "setting": {
       "es6": true,
       "postcss": true,
@@ -54,7 +54,7 @@
   },
   "mp-qq": {
     "usingComponents": true,
-    "appid": "",
+    "appid": "123456",
     "setting": {
       "es6": true,
       "postcss": true,
