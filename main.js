@@ -2,7 +2,7 @@ import App from './App'
 import { createSSRApp } from 'vue'
 
 // 引入 uView UI
-import uview from '@/uni_modules/uview-ui'
+import uview from 'uview-ui'
 
 export function createApp() {
   const app = createSSRApp(App)
