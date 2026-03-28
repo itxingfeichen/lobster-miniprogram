@@ -46,6 +46,8 @@
 
     <!-- 功能菜单 -->
     <view class="menu-section">
+      <!-- 学习相关菜单 (暂时隐藏) -->
+      <!-- 
       <view class="menu-group card">
         <view class="menu-item" @click="navigateTo('learning-record')">
           <view class="menu-left">
@@ -76,6 +78,7 @@
           </view>
         </view>
       </view>
+      -->
 
       <view class="menu-group card">
         <view class="menu-item" @click="navigateTo('settings')">
