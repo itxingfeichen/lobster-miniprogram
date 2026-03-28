@@ -1,12 +1,7 @@
-/**
- * 用户 API
- * 目前使用 Mock 数据，后续替换为真实 API 调用
- */
+import { isMockEnabled, mockAsync, tutorials, codeSnippets } from '../mock/index'
+import { get, post } from '../utils/request'
 
-const { isMockEnabled, mockAsync, tutorials, codeSnippets } = require('../mock/index')
-const { get, post } = require('../utils/request')
-
-var mockUserInfo = {
+const mockUserInfo = {
   id: 'u001',
   nickname: 'OpenClaw 学习者',
   avatar: '/static/images/default-avatar.png',
@@ -23,7 +18,7 @@ var mockUserInfo = {
   ]
 }
 
-var mockLearnProgress = {
+const mockLearnProgress = {
   totalTutorials: 22,
   completedTutorials: 8,
   completionRate: 36,
@@ -45,52 +40,52 @@ var mockLearnProgress = {
   weeklyLearnMinutes: [30, 45, 60, 25, 50, 40, 35]
 }
 
-var mockFavoriteTutorials = ['t001', 't004', 't006', 't010', 't017']
-var mockFavoriteSnippets = ['c001', 'c006', 'c011', 'c017', 'c025']
+let mockFavoriteTutorials = ['t001', 't004', 't006', 't010', 't017']
+let mockFavoriteSnippets = ['c001', 'c006', 'c011', 'c017', 'c025']
 
-function getUserInfo() {
+export function getUserInfo() {
   if (isMockEnabled('user')) return mockAsync(mockUserInfo)
   return get('/api/user/info')
 }
 
-function getLearnProgress() {
+export function getLearnProgress() {
   if (isMockEnabled('user')) return mockAsync(mockLearnProgress)
   return get('/api/user/progress')
 }
 
-function getFavorites(params) {
+export function getFavorites(params) {
   params = params || {}
   if (isMockEnabled('user')) {
-    var type = params.type || 'all'
-    var page = params.page || 1
-    var pageSize = params.pageSize || 10
-    var list = []
+    let type = params.type || 'all'
+    let page = params.page || 1
+    let pageSize = params.pageSize || 10
+    let list = []
 
     if (type === 'all' || type === 'tutorial') {
       tutorials
-        .filter(function(t) { return mockFavoriteTutorials.indexOf(t.id) !== -1 })
-        .forEach(function(t) { list.push(Object.assign({}, t, { favoriteType: 'tutorial' })) })
+        .filter(t => mockFavoriteTutorials.indexOf(t.id) !== -1)
+        .forEach(t => list.push(Object.assign({}, t, { favoriteType: 'tutorial' })))
     }
     if (type === 'all' || type === 'code') {
       codeSnippets
-        .filter(function(c) { return mockFavoriteSnippets.indexOf(c.id) !== -1 })
-        .forEach(function(c) { list.push(Object.assign({}, c, { favoriteType: 'code' })) })
+        .filter(c => mockFavoriteSnippets.indexOf(c.id) !== -1)
+        .forEach(c => list.push(Object.assign({}, c, { favoriteType: 'code' })))
     }
 
-    var total = list.length
-    var start = (page - 1) * pageSize
+    let total = list.length
+    let start = (page - 1) * pageSize
     list = list.slice(start, start + pageSize)
 
-    return mockAsync({ list: list, total: total })
+    return mockAsync({ list, total })
   }
   return get('/api/user/favorites', params)
 }
 
-function toggleFavorite(type, id) {
+export function toggleFavorite(type, id) {
   if (isMockEnabled('user')) {
-    var favorited = false
-    var arr = type === 'tutorial' ? mockFavoriteTutorials : mockFavoriteSnippets
-    var idx = arr.indexOf(id)
+    let favorited = false
+    let arr = type === 'tutorial' ? mockFavoriteTutorials : mockFavoriteSnippets
+    let idx = arr.indexOf(id)
     if (idx > -1) {
       arr.splice(idx, 1)
       favorited = false
@@ -98,14 +93,7 @@ function toggleFavorite(type, id) {
       arr.push(id)
       favorited = true
     }
-    return mockAsync({ favorited: favorited })
+    return mockAsync({ favorited })
   }
-  return post('/api/user/favorite', { type: type, id: id })
-}
-
-module.exports = {
-  getUserInfo: getUserInfo,
-  getLearnProgress: getLearnProgress,
-  getFavorites: getFavorites,
-  toggleFavorite: toggleFavorite
+  return post('/api/user/favorite', { type, id })
 }

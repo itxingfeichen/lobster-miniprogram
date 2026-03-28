@@ -1,12 +1,6 @@
-/**
- * Mock 数据统一管理
- * 统一导出所有 Mock 数据，提供 Mock 开关控制
- */
+import { tutorials, categories } from './tutorials'
+import { codeSnippets, languages } from './codeSnippets'
 
-const { tutorials, categories } = require('./tutorials')
-const { codeSnippets, languages } = require('./codeSnippets')
-
-// Mock 全局配置
 const mockConfig = {
   enabled: true,
   modules: {
@@ -18,7 +12,7 @@ const mockConfig = {
   failureRate: 0
 }
 
-function isMockEnabled(moduleName) {
+export function isMockEnabled(moduleName) {
   if (!mockConfig.enabled) return false
   if (moduleName && mockConfig.modules[moduleName] !== undefined) {
     return mockConfig.modules[moduleName]
@@ -26,7 +20,7 @@ function isMockEnabled(moduleName) {
   return mockConfig.enabled
 }
 
-function mockAsync(data) {
+export function mockAsync(data) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < mockConfig.failureRate) {
@@ -38,20 +32,17 @@ function mockAsync(data) {
   })
 }
 
-function setMockConfig(config) {
+export function setMockConfig(config) {
   Object.assign(mockConfig, config)
   if (config.modules) {
     Object.assign(mockConfig.modules, config.modules)
   }
 }
 
-module.exports = {
+export {
   tutorials,
   categories,
   codeSnippets,
   languages,
-  mockConfig,
-  isMockEnabled,
-  mockAsync,
-  setMockConfig
+  mockConfig
 }

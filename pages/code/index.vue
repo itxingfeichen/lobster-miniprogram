@@ -320,8 +320,9 @@ await message({
       console.log('搜索:', this.searchKeyword)
     },
     viewCodeDetail(snippet) {
-      this.currentSnippet = snippet
-      this.showModal = true
+      uni.navigateTo({
+        url: '/pages/code/detail?id=' + snippet.id
+      })
     },
     closeModal() {
       this.showModal = false

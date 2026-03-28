@@ -93,6 +93,7 @@ $code-comment-color: #6a737d;
 $code-function-color: #6f42c1;
 $code-number-color: #005cc5;
 
-// 引入uView UI主题样式
-@import "~uview-ui/theme.scss";
-@import "~uview-ui/index.scss";
+// 引入全局 mixins
+@import '@/styles/mixins.scss';
+
+// uView UI 样式已在 App.vue 中引入

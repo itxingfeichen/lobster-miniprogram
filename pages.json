@@ -21,6 +21,13 @@
       }
     },
     {
+      "path": "pages/learn/detail",
+      "style": {
+        "navigationBarTitleText": "教程详情",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/code/index",
       "style": {
         "navigationBarTitleText": "代码库",
@@ -28,9 +35,51 @@
       }
     },
     {
+      "path": "pages/code/detail",
+      "style": {
+        "navigationBarTitleText": "代码详情",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/mine/index",
       "style": {
         "navigationBarTitleText": "个人中心",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/mine/learning-record",
+      "style": {
+        "navigationBarTitleText": "学习记录",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/favorites",
+      "style": {
+        "navigationBarTitleText": "我的收藏",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/history",
+      "style": {
+        "navigationBarTitleText": "浏览历史",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/settings",
+      "style": {
+        "navigationBarTitleText": "设置",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/mine/feedback",
+      "style": {
+        "navigationBarTitleText": "意见反馈",
         "enablePullDownRefresh": false
       }
     }

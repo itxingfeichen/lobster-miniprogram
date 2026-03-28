@@ -299,7 +299,7 @@ const categories = [
   { id: 'deployment', name: '部署配置', icon: '☁️', count: 5 }
 ]
 
-module.exports = {
+export {
   tutorials,
   categories
 }

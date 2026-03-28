@@ -208,10 +208,8 @@ export default {
 
     // Banner 点击
     handleBannerClick(item) {
-      console.log('Banner clicked:', item.id, item.title)
-      uni.showToast({
-        title: '教程详情开发中',
-        icon: 'none'
+      uni.navigateTo({
+        url: '/pages/learn/detail?id=' + item.id
       })
     },
 
@@ -233,10 +231,8 @@ export default {
 
     // 教程卡片点击
     handleTutorialClick(item) {
-      console.log('Tutorial clicked:', item.id, item.title)
-      uni.showToast({
-        title: '教程详情开发中',
-        icon: 'none'
+      uni.navigateTo({
+        url: '/pages/learn/detail?id=' + item.id
       })
     },
 

@@ -523,7 +523,7 @@ const languages = [
   }
 ]
 
-module.exports = {
+export {
   codeSnippets,
   languages
 }

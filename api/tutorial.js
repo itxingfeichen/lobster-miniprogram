@@ -3,68 +3,68 @@
  * 目前使用 Mock 数据，后续替换为真实 API 调用
  */
 
-const { isMockEnabled, mockAsync, tutorials, categories } = require('../mock/index')
-const { get } = require('../utils/request')
+import { isMockEnabled, mockAsync, tutorials, categories } from '../mock/index'
+import { get } from '../utils/request'
 
-function getTutorialList(params) {
+export function getTutorialList(params) {
   params = params || {}
   if (isMockEnabled('tutorial')) {
-    var category = params.category || ''
-    var difficulty = params.difficulty || ''
-    var keyword = params.keyword || ''
-    var page = params.page || 1
-    var pageSize = params.pageSize || 10
-    var sort = params.sort || 'newest'
+    let category = params.category || ''
+    let difficulty = params.difficulty || ''
+    let keyword = params.keyword || ''
+    let page = params.page || 1
+    let pageSize = params.pageSize || 10
+    let sort = params.sort || 'newest'
 
-    var list = tutorials.slice()
+    let list = tutorials.slice()
 
     if (category) {
-      list = list.filter(function(t) { return t.category === category })
+      list = list.filter(t => t.category === category)
     }
     if (difficulty) {
-      list = list.filter(function(t) { return t.difficulty === difficulty })
+      list = list.filter(t => t.difficulty === difficulty)
     }
     if (keyword) {
-      var kw = keyword.toLowerCase()
-      list = list.filter(function(t) {
+      let kw = keyword.toLowerCase()
+      list = list.filter(t => {
         return t.title.toLowerCase().indexOf(kw) !== -1 ||
           t.summary.toLowerCase().indexOf(kw) !== -1 ||
-          t.tags.some(function(tag) { return tag.toLowerCase().indexOf(kw) !== -1 })
+          t.tags.some(tag => tag.toLowerCase().indexOf(kw) !== -1)
       })
     }
 
     if (sort === 'newest') {
-      list.sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt) })
+      list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     } else if (sort === 'hottest') {
-      list.sort(function(a, b) { return b.readCount - a.readCount })
+      list.sort((a, b) => b.readCount - a.readCount)
     } else if (sort === 'recommended') {
-      list.sort(function(a, b) { return b.likeCount - a.likeCount })
+      list.sort((a, b) => b.likeCount - a.likeCount)
     }
 
-    var total = list.length
-    var start = (page - 1) * pageSize
+    let total = list.length
+    let start = (page - 1) * pageSize
     list = list.slice(start, start + pageSize)
 
-    return mockAsync({ list: list, total: total, page: page, pageSize: pageSize })
+    return mockAsync({ list, total, page, pageSize })
   }
 
   return get('/api/tutorials', params)
 }
 
-function getTutorialDetail(id) {
+export function getTutorialDetail(id) {
   if (isMockEnabled('tutorial')) {
-    var tutorial = tutorials.find(function(t) { return t.id === id })
+    let tutorial = tutorials.find(t => t.id === id)
     if (!tutorial) return Promise.reject(new Error('教程不存在'))
     return mockAsync(tutorial)
   }
   return get('/api/tutorials/' + id)
 }
 
-function getCategories() {
+export function getCategories() {
   if (isMockEnabled('tutorial')) {
-    var result = categories.map(function(cat) {
+    let result = categories.map(cat => {
       return Object.assign({}, cat, {
-        count: tutorials.filter(function(t) { return t.category === cat.id }).length
+        count: tutorials.filter(t => t.category === cat.id).length
       })
     })
     return mockAsync(result)
@@ -72,32 +72,24 @@ function getCategories() {
   return get('/api/tutorials/categories')
 }
 
-function getRecommended(limit) {
+export function getRecommended(limit) {
   limit = limit || 5
   if (isMockEnabled('tutorial')) {
-    var list = tutorials.slice()
-      .sort(function(a, b) { return b.likeCount - a.likeCount })
+    let list = tutorials.slice()
+      .sort((a, b) => b.likeCount - a.likeCount)
       .slice(0, limit)
     return mockAsync(list)
   }
-  return get('/api/tutorials/recommended', { limit: limit })
+  return get('/api/tutorials/recommended', { limit })
 }
 
-function getHotTutorials(limit) {
+export function getHotTutorials(limit) {
   limit = limit || 10
   if (isMockEnabled('tutorial')) {
-    var list = tutorials.slice()
-      .sort(function(a, b) { return b.readCount - a.readCount })
+    let list = tutorials.slice()
+      .sort((a, b) => b.readCount - a.readCount)
       .slice(0, limit)
     return mockAsync(list)
   }
-  return get('/api/tutorials/hot', { limit: limit })
-}
-
-module.exports = {
-  getTutorialList: getTutorialList,
-  getTutorialDetail: getTutorialDetail,
-  getCategories: getCategories,
-  getRecommended: getRecommended,
-  getHotTutorials: getHotTutorials
+  return get('/api/tutorials/hot', { limit })
 }

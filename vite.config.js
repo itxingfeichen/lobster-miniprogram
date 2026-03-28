@@ -7,10 +7,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, '.'),
-      'uview-ui': resolve(__dirname, 'node_modules/uview-ui')
+      'uview-ui': resolve(__dirname, 'uni_modules/uview-ui')
     }
   },
   optimizeDeps: {
-    include: ['uview-ui']
+    include: []
   }
 })
