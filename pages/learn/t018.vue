@@ -137,10 +137,10 @@ WantedBy=multi-user.target</text>
 export default {
   methods: {
     goToT017() {
-      uni.navigateTo({ url: '/pages/learn/t017' })
+      uni.redirectTo({ url: '/pages/learn/t017' })
     },
     goToT019() {
-      uni.navigateTo({ url: '/pages/learn/t019' })
+      uni.redirectTo({ url: '/pages/learn/t019' })
     }
   }
 }

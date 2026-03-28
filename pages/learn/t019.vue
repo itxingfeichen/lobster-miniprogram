@@ -110,10 +110,10 @@ sudo ufw enable</text>
 export default {
   methods: {
     goToT018() {
-      uni.navigateTo({ url: '/pages/learn/t018' })
+      uni.redirectTo({ url: '/pages/learn/t018' })
     },
     goToT020() {
-      uni.navigateTo({ url: '/pages/learn/t020' })
+      uni.redirectTo({ url: '/pages/learn/t020' })
     }
   }
 }

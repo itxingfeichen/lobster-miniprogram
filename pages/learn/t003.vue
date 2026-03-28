@@ -19,8 +19,82 @@
         <text class="intro-text">AGENTS.md是OpenClaw的核心配置文件，通过掌握其完整的配置语法和最佳实践，可以精确控制Agent的角色定位、能力边界和行为流程，实现高度定制化的AI Agent。</text>
       </view>
 
+      <!-- 配置层次结构图 -->
       <view class="section">
-        <text class="section-title">一、AGENTS.md的核心地位</text>
+        <text class="section-title">一、配置文件的层次结构</text>
+        <text class="p">OpenClaw 使用多层次配置文件来定义 Agent，每层配置文件有其特定作用：</text>
+        
+        <view class="hierarchy-diagram">
+          <view class="hierarchy-layer top">
+            <text class="layer-name">IDENTITY.md</text>
+            <text class="layer-desc">Agent 身份标识</text>
+          </view>
+          <view class="hierarchy-arrow">↓</view>
+          <view class="hierarchy-layer">
+            <text class="layer-name">AGENTS.md</text>
+            <text class="layer-desc">角色定义 & 能力</text>
+          </view>
+          <view class="hierarchy-arrow">↓</view>
+          <view class="hierarchy-layer">
+            <text class="layer-name">SOUL.md</text>
+            <text class="layer-desc">人格 & 行为风格</text>
+          </view>
+          <view class="hierarchy-arrow">↓</view>
+          <view class="hierarchy-layer">
+            <text class="layer-name">TOOLS.md</text>
+            <text class="layer-desc">工具权限配置</text>
+          </view>
+          <view class="hierarchy-arrow">↓</view>
+          <view class="hierarchy-layer bottom">
+            <text class="layer-name">USER.md</text>
+            <text class="layer-desc">用户偏好记忆</text>
+          </view>
+        </view>
+        <view class="image-caption">图1-1：配置文件层次结构</view>
+        
+        <text class="p" style="margin-top: 32rpx;">各配置文件的加载顺序和时机：</text>
+        <view class="timeline">
+          <view class="timeline-item">
+            <text class="time-num">1</text>
+            <text class="time-text">Agent 启动时加载 AGENTS.md 确定角色</text>
+          </view>
+          <view class="timeline-item">
+            <text class="time-num">2</text>
+            <text class="time-text">加载 SOUL.md 匹配人格特征</text>
+          </view>
+          <view class="timeline-item">
+            <text class="time-num">3</text>
+            <text class="time-text">加载 TOOLS.md 获取可用工具列表</text>
+          </view>
+          <view class="timeline-item">
+            <text class="time-num">4</text>
+            <text class="time-text">运行时加载 USER.md 了解用户偏好</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">二、技术背景：为什么分离配置文件？</text>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">统一配置的问题</text>
+          <text class="challenge-desc">将所有配置放在单一文件中会导致：
+1. 难以维护：角色、人格、工具混在一起
+2. 无法复用：不同 Agent 无法共享相同的人格配置
+3. 更新困难：修改一处可能影响其他功能</text>
+        </view>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">分离配置的优势</text>
+          <text class="challenge-desc">OpenClaw 的分离式设计：
+- 职责清晰：每个文件只管一件事
+- 灵活组合：不同 AGENTS + 不同 SOUL = 不同性格的 Agent
+- 易于测试：单独修改和调试每个配置</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">三、AGENTS.md的核心地位</text>
         <text class="p">AGENTS.md是定义Agent"做什么"和"怎么做"的核心配置文件。它采用Markdown格式，通过结构化的配置项来描述Agent的各项属性。</text>
         <view class="feature-list">
           <view class="feature-item">
@@ -43,7 +117,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">二、文件结构总览</text>
+        <text class="section-title">四、文件结构总览</text>
         
         <view class="step-box">
           <text class="step-num">2.1</text>
@@ -99,7 +173,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">三、基础配置详解</text>
+        <text class="section-title">五、基础配置详解</text>
         
         <view class="step-box">
           <text class="step-num">3.1</text>
@@ -157,7 +231,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">四、权限配置详解</text>
+        <text class="section-title">六、权限配置详解</text>
         
         <view class="step-box">
           <text class="step-num">4.1</text>
@@ -406,10 +480,10 @@
 export default {
   methods: {
     goToT002() {
-      uni.navigateTo({ url: '/pages/learn/t002' })
+      uni.redirectTo({ url: '/pages/learn/t002' })
     },
     goToT004() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t004' })
+      uni.redirectTo({ url: '/pages/learn/t004' })
     }
   }
 }
@@ -461,6 +535,109 @@ $text-secondary: #666;
 }
 
 .article-body { padding: 32rpx; }
+
+.hierarchy-diagram {
+  background: linear-gradient(180deg, #f8faf8 0%, #fff 100%);
+  border: 2rpx solid #e0e8e0;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 24rpx 0;
+  
+  .hierarchy-layer {
+    text-align: center;
+    padding: 16rpx;
+    background: rgba(60, 179, 113, 0.1);
+    border-radius: 12rpx;
+    margin: 8rpx 0;
+    
+    &.top {
+      background: rgba(60, 179, 113, 0.2);
+    }
+    &.bottom {
+      background: rgba(60, 179, 113, 0.05);
+    }
+    
+    .layer-name {
+      display: block;
+      font-size: 28rpx;
+      font-weight: 600;
+      color: $primary;
+    }
+    
+    .layer-desc {
+      font-size: 22rpx;
+      color: $text-secondary;
+    }
+  }
+  
+  .hierarchy-arrow {
+    text-align: center;
+    color: $primary;
+    font-size: 24rpx;
+  }
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 24rpx;
+  color: $text-secondary;
+  margin-top: 16rpx;
+  font-style: italic;
+}
+
+.timeline {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-top: 16rpx;
+  
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    padding: 12rpx 0;
+    
+    .time-num {
+      width: 40rpx;
+      height: 40rpx;
+      background: $primary;
+      color: #fff;
+      font-size: 24rpx;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16rpx;
+      flex-shrink: 0;
+    }
+    
+    .time-text {
+      font-size: 26rpx;
+      color: $text-main;
+    }
+  }
+}
+
+.challenge-item {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  border-left: 6rpx solid $primary;
+  
+  .challenge-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: $text-main;
+    margin-bottom: 12rpx;
+  }
+  
+  .challenge-desc {
+    font-size: 26rpx;
+    color: $text-secondary;
+    line-height: 1.7;
+  }
+}
 
 .intro-section {
   background: linear-gradient(135deg, rgba(60, 179, 113, 0.08) 0%, rgba(60, 179, 113, 0.02) 100%);

@@ -19,8 +19,73 @@
         <text class="intro-text">本文将带你在30分钟内完成OpenClaw开发环境搭建，通过详细的步骤说明和环境配置指南，帮助开发者快速入门AI Agent开发，掌握从环境准备到首个Agent运行的完整流程。</text>
       </view>
 
+      <!-- 架构图 -->
       <view class="section">
-        <text class="section-title">一、为什么选择OpenClaw</text>
+        <text class="section-title">一、OpenClaw 整体架构</text>
+        <text class="p">OpenClaw 采用分层架构设计，主要包含以下核心组件：</text>
+        <view class="arch-diagram">
+          <view class="arch-layer">
+            <text class="layer-name">接入层</text>
+            <view class="layer-items">
+              <text class="layer-item">CLI / Web UI / QQ Bot / 飞书</text>
+            </view>
+          </view>
+          <view class="arch-arrow">↓</view>
+          <view class="arch-layer">
+            <text class="layer-name">Gateway 网关</text>
+            <view class="layer-items">
+              <text class="layer-item">消息路由 / 会话管理 / 权限控制</text>
+            </view>
+          </view>
+          <view class="arch-arrow">↓</view>
+          <view class="arch-layer">
+            <text class="layer-name">Agent 核心层</text>
+            <view class="layer-items">
+              <text class="layer-item">主 Agent / 子 Agent / 工具调度</text>
+            </view>
+          </view>
+          <view class="arch-arrow">↓</view>
+          <view class="arch-layer">
+            <text class="layer-name">能力扩展层</text>
+            <view class="layer-items">
+              <text class="layer-item">内置工具 / Skill 技能 / MCP 协议</text>
+            </view>
+          </view>
+          <view class="arch-arrow">↓</view>
+          <view class="arch-layer">
+            <text class="layer-name">LLM 大模型层</text>
+            <view class="layer-items">
+              <text class="layer-item">GPT-4 / Claude / 硅基流动</text>
+            </view>
+          </view>
+        </view>
+        <view class="image-caption">图1-1：OpenClaw 分层架构图</view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">二、技术选型与挑战</text>
+        <text class="p">在选择 OpenClaw 作为 AI Agent 开发平台时，开发者通常面临以下考量：</text>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">为什么选择 OpenClaw？</text>
+          <text class="challenge-desc">相比自建 Agent 框架，OpenClaw 提供了开箱即用的完整解决方案，无需从头构建消息路由、会话管理、工具调度等基础设施。其独特的分层 Agent 架构让复杂任务分解变得简单。</text>
+        </view>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">主要技术挑战</text>
+          <text class="challenge-desc">1. 环境兼容性：Node.js 版本与各平台依赖的兼容性问题
+2. 网络访问：国内访问 OpenAI API 的网络限制
+3. 权限配置：合理的 Agent 权限设置需要经验积累</text>
+        </view>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">为什么选择 Node.js？</text>
+          <text class="challenge-desc">Node.js 提供了出色的异步处理能力和丰富的生态系统，使得 OpenClaw 能够高效处理并发请求，同时通过 npm/pnpm 生态轻松集成各种工具和库。</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">三、核心特性解析</text>
         <text class="p">在AI Agent开发领域，OpenClaw以其独特的架构设计脱颖而出。作为一个开源的智能体协作平台，它提供了灵活的Agent定义能力和丰富的工具生态系统。</text>
         
         <view class="feature-grid">
@@ -317,13 +382,13 @@ source ~/.zshrc</text>
 export default {
   methods: {
     goToT002() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t002' })
+      uni.redirectTo({ url: '/pages/learn/t002' })
     },
     goToT003() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t003' })
+      uni.redirectTo({ url: '/pages/learn/t003' })
     },
     goToT004() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t004' })
+      uni.redirectTo({ url: '/pages/learn/t004' })
     }
   }
 }
@@ -379,6 +444,74 @@ $text-secondary: #666;
 
 .article-body {
   padding: 32rpx;
+}
+
+.arch-diagram {
+  background: linear-gradient(180deg, #f8faf8 0%, #fff 100%);
+  border: 2rpx solid #e0e8e0;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 24rpx 0;
+  
+  .arch-layer {
+    text-align: center;
+    
+    .layer-name {
+      display: block;
+      font-size: 26rpx;
+      font-weight: 600;
+      color: $primary;
+      margin-bottom: 8rpx;
+    }
+    
+    .layer-items {
+      .layer-item {
+        display: inline-block;
+        padding: 8rpx 20rpx;
+        background: rgba(60, 179, 113, 0.1);
+        color: $text-main;
+        border-radius: 20rpx;
+        font-size: 22rpx;
+      }
+    }
+  }
+  
+  .arch-arrow {
+    text-align: center;
+    color: $primary;
+    font-size: 24rpx;
+    padding: 8rpx 0;
+  }
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 24rpx;
+  color: $text-secondary;
+  margin-top: 16rpx;
+  font-style: italic;
+}
+
+.challenge-item {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  border-left: 6rpx solid $primary;
+  
+  .challenge-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: $text-main;
+    margin-bottom: 12rpx;
+  }
+  
+  .challenge-desc {
+    font-size: 26rpx;
+    color: $text-secondary;
+    line-height: 1.7;
+  }
 }
 
 .intro-section {

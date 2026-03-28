@@ -19,8 +19,77 @@
         <text class="intro-text">通过创建第一个Hello World Agent，快速掌握OpenClaw的核心概念和配置方法，理解Agent从定义到运行的完整生命周期。</text>
       </view>
 
+      <!-- 架构图 -->
       <view class="section">
-        <text class="section-title">一、为什么从Hello World开始</text>
+        <text class="section-title">一、Hello Agent 工作流程</text>
+        <text class="p">当用户发送消息时，OpenClaw 内部经历了以下处理流程：</text>
+        <view class="flow-diagram">
+          <view class="flow-row">
+            <view class="flow-step">用户发送"你好"</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">Gateway 接收</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">路由到 Agent</view>
+          </view>
+          <view class="flow-row">
+            <view class="flow-step">加载配置</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">解析意图</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">调用 LLM</view>
+          </view>
+          <view class="flow-row">
+            <view class="flow-step">LLM 生成回复</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">返回给 Gateway</view>
+            <view class="flow-arrow">→</view>
+            <view class="flow-step">推送回复</view>
+          </view>
+        </view>
+        <view class="image-caption">图1-1：消息处理流程</view>
+        
+        <text class="p" style="margin-top: 32rpx;">配置文件在其中的作用：</text>
+        <view class="config-flow">
+          <view class="config-item">
+            <text class="config-icon">📋</text>
+            <text class="config-name">AGENTS.md</text>
+            <text class="config-role">定义"做什么"</text>
+          </view>
+          <view class="config-item">
+            <text class="config-icon">💫</text>
+            <text class="config-name">SOUL.md</text>
+            <text class="config-role">定义"怎么做"</text>
+          </view>
+          <view class="config-item">
+            <text class="config-icon">🔧</text>
+            <text class="config-name">TOOLS.md</text>
+            <text class="config-role">定义"用什么做"</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">二、技术背景：为什么需要配置文件？</text>
+        <text class="p">在传统 AI 对话系统中，模型的行为完全由系统提示词控制。但这种方法存在以下问题：</text>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">传统方式的痛点</text>
+          <text class="challenge-desc">1. 提示词难以维护：随着功能增加，系统提示词变得臃肿
+2. 角色切换困难：无法灵活定义多个不同角色的 Agent
+3. 权限控制粗粒度：无法精确控制 Agent 能做什么、不能做什么</text>
+        </view>
+        
+        <view class="challenge-item">
+          <text class="challenge-title">OpenClaw 的解决方案</text>
+          <text class="challenge-desc">通过分离的配置文件实现：
+- AGENTS.md：角色定义，明确 Agent 的身份和能力
+- SOUL.md：人格配置，控制 Agent 的行为风格
+- TOOLS.md：工具限制，确保安全可控</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">三、为什么从Hello World开始</text>
         <text class="p">每个开发者的学习之旅都从"Hello World"开始。在OpenClaw的世界里，创建第一个Agent不仅是入门练习，更是理解整个平台运作机制的关键一步。</text>
         <text class="p">通过这个简单的案例，你将掌握：</text>
         <view class="feature-list">
@@ -44,7 +113,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">二、前置条件</text>
+        <text class="section-title">四、前置条件</text>
         <text class="p">在开始创建Agent之前，请确保已完成OpenClaw环境搭建（参考t001教程）。</text>
         <view class="check-list">
           <view class="check-item">
@@ -67,7 +136,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">三、创建你的第一个Agent</text>
+        <text class="section-title">五、创建你的第一个Agent</text>
         
         <view class="step-box">
           <text class="step-num">3.1</text>
@@ -144,7 +213,7 @@ openclaw init</text>
       </view>
 
       <view class="section">
-        <text class="section-title">四、启动并测试</text>
+        <text class="section-title">六、启动并测试</text>
         
         <view class="step-box">
           <text class="step-num">4.1</text>
@@ -245,10 +314,10 @@ openclaw chat</text>
 export default {
   methods: {
     goToT001() {
-      uni.navigateTo({ url: '/pages/learn/t001' })
+      uni.redirectTo({ url: '/pages/learn/t001' })
     },
     goToT003() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t003' })
+      uni.redirectTo({ url: '/pages/learn/t003' })
     }
   }
 }
@@ -300,6 +369,98 @@ $text-secondary: #666;
 }
 
 .article-body { padding: 32rpx; }
+
+.flow-diagram {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin: 24rpx 0;
+  
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12rpx 0;
+    flex-wrap: wrap;
+    
+    .flow-step {
+      padding: 12rpx 20rpx;
+      background: $primary;
+      color: #fff;
+      border-radius: 20rpx;
+      font-size: 22rpx;
+      margin: 4rpx;
+    }
+    
+    .flow-arrow {
+      color: $primary;
+      font-size: 24rpx;
+      margin: 4rpx;
+    }
+  }
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 24rpx;
+  color: $text-secondary;
+  margin-top: 16rpx;
+  font-style: italic;
+}
+
+.config-flow {
+  display: flex;
+  justify-content: space-around;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-top: 16rpx;
+  
+  .config-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .config-icon {
+      font-size: 40rpx;
+      margin-bottom: 8rpx;
+    }
+    
+    .config-name {
+      font-size: 26rpx;
+      font-weight: 600;
+      color: $text-main;
+      margin-bottom: 4rpx;
+    }
+    
+    .config-role {
+      font-size: 22rpx;
+      color: $text-secondary;
+    }
+  }
+}
+
+.challenge-item {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  border-left: 6rpx solid $primary;
+  
+  .challenge-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: $text-main;
+    margin-bottom: 12rpx;
+  }
+  
+  .challenge-desc {
+    font-size: 26rpx;
+    color: $text-secondary;
+    line-height: 1.7;
+  }
+}
 
 .intro-section {
   background: linear-gradient(135deg, rgba(60, 179, 113, 0.08) 0%, rgba(60, 179, 113, 0.02) 100%);

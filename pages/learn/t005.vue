@@ -141,10 +141,10 @@
 export default {
   methods: {
     goToT004() {
-      uni.navigateTo({ url: '/pages/learn/t004' })
+      uni.redirectTo({ url: '/pages/learn/t004' })
     },
     goToT006() {
-      uni.navigateTo({ url: '/pages/learn/detail?id=t006' })
+      uni.redirectTo({ url: '/pages/learn/t006' })
     }
   }
 }

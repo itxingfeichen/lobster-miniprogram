@@ -103,10 +103,10 @@
 export default {
   methods: {
     goToT009() {
-      uni.navigateTo({ url: '/pages/learn/t009' })
+      uni.redirectTo({ url: '/pages/learn/t009' })
     },
     goToT011() {
-      uni.navigateTo({ url: '/pages/learn/t011' })
+      uni.redirectTo({ url: '/pages/learn/t011' })
     }
   }
 }

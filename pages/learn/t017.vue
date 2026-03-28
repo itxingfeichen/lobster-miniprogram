@@ -110,10 +110,10 @@ openclaw chat "你好，OpenClaw！"</text>
 export default {
   methods: {
     goToT016() {
-      uni.navigateTo({ url: '/pages/learn/t016' })
+      uni.redirectTo({ url: '/pages/learn/t016' })
     },
     goToT018() {
-      uni.navigateTo({ url: '/pages/learn/t018' })
+      uni.redirectTo({ url: '/pages/learn/t018' })
     }
   }
 }

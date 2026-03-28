@@ -115,10 +115,10 @@ clawhub publish ./my-awesome-skill</text>
 export default {
   methods: {
     goToT021() {
-      uni.navigateTo({ url: '/pages/learn/t021' })
+      uni.redirectTo({ url: '/pages/learn/t021' })
     },
     goToT001() {
-      uni.navigateTo({ url: '/pages/learn/t001' })
+      uni.redirectTo({ url: '/pages/learn/t001' })
     }
   }
 }

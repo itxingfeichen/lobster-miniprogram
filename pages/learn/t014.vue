@@ -107,10 +107,10 @@ server.start();</text>
 export default {
   methods: {
     goToT013() {
-      uni.navigateTo({ url: '/pages/learn/t013' })
+      uni.redirectTo({ url: '/pages/learn/t013' })
     },
     goToT015() {
-      uni.navigateTo({ url: '/pages/learn/t015' })
+      uni.redirectTo({ url: '/pages/learn/t015' })
     }
   }
 }

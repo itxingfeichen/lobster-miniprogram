@@ -102,10 +102,10 @@ openclaw gateway restart</text>
 export default {
   methods: {
     goToT019() {
-      uni.navigateTo({ url: '/pages/learn/t019' })
+      uni.redirectTo({ url: '/pages/learn/t019' })
     },
     goToT021() {
-      uni.navigateTo({ url: '/pages/learn/t021' })
+      uni.redirectTo({ url: '/pages/learn/t021' })
     }
   }
 }
