@@ -19,8 +19,37 @@
         <text class="intro-text">学习如何创建一个具备文件操作、网络搜索等多种能力的实用 Agent。通过本教程，你将掌握配置多权限 Agent 的方法。</text>
       </view>
 
+      <!-- 技术背景 -->
       <view class="section">
-        <text class="section-title">一、设计目标</text>
+        <text class="section-title">一、多功能 Agent 的架构</text>
+        <text class="p">多功能 Agent 通过权限控制系统获得不同能力：</text>
+        
+        <view class="capability-flow">
+          <view class="cap-item">
+            <text class="cap-icon">🔒</text>
+            <text class="cap-title">权限层</text>
+            <text class="cap-desc">AGENTS.md 定义权限</text>
+          </view>
+          <view class="cap-item">
+            <text class="cap-icon">🔧</text>
+            <text class="cap-title">工具层</text>
+            <text class="cap-desc">TOOLS.md 配置工具</text>
+          </view>
+          <view class="cap-item">
+            <text class="cap-icon">⚡</text>
+            <text class="cap-title">执行层</text>
+            <text class="cap-desc">Agent 调用执行</text>
+          </view>
+        </view>
+        
+        <view class="key-point">
+          <text class="point-title">⚠️ 权限越大，风险越高</text>
+          <text class="point-text">开启文件读写、网络访问等权限意味着 Agent 可以执行更多操作，生产环境遵循最小权限原则。</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">二、设计目标</text>
         <text class="p">创建一个能够读写文件、搜索网络、执行命令和管理待办的 Agent。</text>
         <view class="feature-list">
           <view class="feature-item">
@@ -57,7 +86,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">三、配置 SOUL.md</text>
+        <text class="section-title">四、配置 SOUL.md</text>
         <view class="code-block">
           <text class="code"># SOUL.md
 
@@ -85,12 +114,11 @@
       </view>
 
       <view class="section">
-        <text class="section-title">五、测试 Agent</text>
-        <view class="test-cases">
-          <view class="test-item">
-            <text class="test-label">测试1：文件操作</text>
-            <text class="test-input">帮我创建一个 TODO.md 文件</text>
-          </view>
+        <text class="section-title">二、设计目标</text>
+      </view>
+      <view class="section">
+        <text class="section-title">三、配置 AGENTS.md</text>
+      </view>
           <view class="test-item">
             <text class="test-label">测试2：网络搜索</text>
             <text class="test-input">搜索最新的 Node.js 版本</text>
@@ -196,6 +224,60 @@ $text-secondary: #666;
 }
 
 .article-body { padding: 32rpx; }
+
+.capability-flow {
+  display: flex;
+  justify-content: space-around;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin: 24rpx 0;
+  
+  .cap-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .cap-icon {
+      font-size: 40rpx;
+      margin-bottom: 8rpx;
+    }
+    
+    .cap-title {
+      font-size: 26rpx;
+      font-weight: 600;
+      color: $primary;
+    }
+    
+    .cap-desc {
+      font-size: 22rpx;
+      color: $text-secondary;
+      text-align: center;
+    }
+  }
+}
+
+.key-point {
+  background: #fff3e0;
+  border-left: 6rpx solid #ff9800;
+  padding: 20rpx;
+  border-radius: 0 12rpx 12rpx 0;
+  margin-top: 24rpx;
+  
+  .point-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #e65100;
+    margin-bottom: 8rpx;
+  }
+  
+  .point-text {
+    font-size: 26rpx;
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+}
 
 .intro-section {
   background: linear-gradient(135deg, rgba(60, 179, 113, 0.08) 0%, rgba(60, 179, 113, 0.02) 100%);

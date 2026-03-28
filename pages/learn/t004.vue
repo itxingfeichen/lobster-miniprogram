@@ -14,13 +14,48 @@
     </view>
 
     <view class="article-body">
-      <view class="intro-section">
+      <view class="intro_section">
         <text class="intro-title">核心观点</text>
-        <text class="intro-text">快速掌握 OpenClaw CLI 的常用命令，提升日常操作效率。本页涵盖 Gateway 管理、会话管理、技能管理等核心命令。</text>
+        <text class="intro-text">快速掌握 OpenClaw CLI 的常用命令，提升日常操作效率。本页涵盖 Gateway 管理，会话管理，技能管理等核心命令。</text>
+      </view>
+
+      <!-- 技术背景 -->
+      <view class="section">
+        <text class="section-title">一、为什么需要 CLI？</text>
+        <text class="p">OpenClaw CLI 是整个平台的入口，理解其架构有助于更好地使用：</text>
+        
+        <view class="arch-diagram">
+          <view class="arch-item">
+            <text class="arch-icon">🔰</text>
+            <text class="arch-name">CLI 入口</text>
+            <text class="arch-desc">命令行交互入口</text>
+          </view>
+          <view class="arch-item">
+            <text class="arch-icon">⚙️</text>
+            <text class="arch-name">Gateway</text>
+            <text class="arch-desc">核心服务组件</text>
+          </view>
+          <view class="arch-item">
+            <text class="arch-icon">🤖</text>
+            <text class="arch-name">Agent 引擎</text>
+            <text class="arch-desc">任务执行核心</text>
+          </view>
+          <view class="arch-item">
+            <text class="arch-icon">🧠</text>
+            <text class="arch-name">LLM</text>
+            <text class="arch-desc">大模型能力</text>
+          </view>
+        </view>
+        <view class="image-caption">图1-1：CLI 与核心组件关系</view>
+        
+        <view class="tip-box">
+          <text class="tip-title">💡 CLI vs 其他接入方式</text>
+          <text class="tip-text">CLI 是最直接的方式，适合开发和调试；生产环境通常使用 Web UI 或 Bot 接入。</text>
+        </view>
       </view>
 
       <view class="section">
-        <text class="section-title">一、Gateway 管理</text>
+        <text class="section-title">二、Gateway 管理</text>
         <view class="command-list">
           <view class="command-item">
             <text class="cmd-name">openclaw gateway start</text>
@@ -42,7 +77,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">二、会话管理</text>
+        <text class="section-title">三、会话管理</text>
         <view class="command-list">
           <view class="command-item">
             <text class="cmd-name">openclaw chat "消息"</text>
@@ -60,7 +95,7 @@
       </view>
 
       <view class="section">
-        <text class="section-title">三、技能管理</text>
+        <text class="section-title">四、技能管理</text>
         <view class="command-list">
           <view class="command-item">
             <text class="cmd-name">clawhub search &lt;keyword&gt;</text>
@@ -213,6 +248,65 @@ $text-secondary: #666;
 }
 
 .article-body { padding: 32rpx; }
+
+.arch-diagram {
+  display: flex;
+  justify-content: space-around;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin: 24rpx 0;
+  
+  .arch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .arch-icon {
+      font-size: 40rpx;
+      margin-bottom: 8rpx;
+    }
+    
+    .arch-name {
+      font-size: 24rpx;
+      font-weight: 600;
+      color: $text-main;
+    }
+    
+    .arch-desc {
+      font-size: 20rpx;
+      color: $text-secondary;
+    }
+  }
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 24rpx;
+  color: $text-secondary;
+  margin-top: 16rpx;
+  font-style: italic;
+}
+
+.tip-box {
+  background: #e8f5e9;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-top: 24rpx;
+  
+  .tip-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: $text-main;
+    margin-bottom: 8rpx;
+  }
+  
+  .tip-text {
+    font-size: 26rpx;
+    color: $text-secondary;
+  }
+}
 
 .intro-section {
   background: linear-gradient(135deg, rgba(60, 179, 113, 0.08) 0%, rgba(60, 179, 113, 0.02) 100%);
