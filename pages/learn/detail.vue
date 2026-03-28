@@ -114,7 +114,152 @@ export default {
   },
   
   onLoad(options) {
+    // 先重置状态，避免残留
+    this.loading = true
+    this.tutorial = null
+    
+    if (!options.id) {
+      // 没有id则返回上一页
+      uni.navigateBack({
+        delta: 1
+      })
+      return
+    }
+    
     if (options.id) {
+      // t001-t022使用独立静态页面（使用redirectTo关闭当前页）
+      if (options.id === 't001') {
+        uni.redirectTo({
+          url: '/pages/learn/t001'
+        })
+        return
+      }
+      if (options.id === 't002') {
+        uni.redirectTo({
+          url: '/pages/learn/t002'
+        })
+        return
+      }
+      if (options.id === 't003') {
+        uni.redirectTo({
+          url: '/pages/learn/t003'
+        })
+        return
+      }
+      if (options.id === 't004') {
+        uni.redirectTo({
+          url: '/pages/learn/t004'
+        })
+        return
+      }
+      if (options.id === 't005') {
+        uni.redirectTo({
+          url: '/pages/learn/t005'
+        })
+        return
+      }
+      if (options.id === 't006') {
+        uni.redirectTo({
+          url: '/pages/learn/t006'
+        })
+        return
+      }
+      if (options.id === 't007') {
+        uni.redirectTo({
+          url: '/pages/learn/t007'
+        })
+        return
+      }
+      if (options.id === 't008') {
+        uni.redirectTo({
+          url: '/pages/learn/t008'
+        })
+        return
+      }
+      if (options.id === 't009') {
+        uni.redirectTo({
+          url: '/pages/learn/t009'
+        })
+        return
+      }
+      if (options.id === 't010') {
+        uni.redirectTo({
+          url: '/pages/learn/t010'
+        })
+        return
+      }
+      if (options.id === 't011') {
+        uni.redirectTo({
+          url: '/pages/learn/t011'
+        })
+        return
+      }
+      if (options.id === 't012') {
+        uni.redirectTo({
+          url: '/pages/learn/t012'
+        })
+        return
+      }
+      if (options.id === 't013') {
+        uni.redirectTo({
+          url: '/pages/learn/t013'
+        })
+        return
+      }
+      if (options.id === 't014') {
+        uni.redirectTo({
+          url: '/pages/learn/t014'
+        })
+        return
+      }
+      if (options.id === 't015') {
+        uni.redirectTo({
+          url: '/pages/learn/t015'
+        })
+        return
+      }
+      if (options.id === 't016') {
+        uni.redirectTo({
+          url: '/pages/learn/t016'
+        })
+        return
+      }
+      if (options.id === 't017') {
+        uni.redirectTo({
+          url: '/pages/learn/t017'
+        })
+        return
+      }
+      if (options.id === 't018') {
+        uni.redirectTo({
+          url: '/pages/learn/t018'
+        })
+        return
+      }
+      if (options.id === 't019') {
+        uni.redirectTo({
+          url: '/pages/learn/t019'
+        })
+        return
+      }
+      if (options.id === 't020') {
+        uni.redirectTo({
+          url: '/pages/learn/t020'
+        })
+        return
+      }
+      if (options.id === 't021') {
+        uni.redirectTo({
+          url: '/pages/learn/t021'
+        })
+        return
+      }
+      if (options.id === 't022') {
+        uni.redirectTo({
+          url: '/pages/learn/t022'
+        })
+        return
+      }
       this.loadDetail(options.id)
     }
   },
@@ -170,7 +315,7 @@ export default {
     },
     
     goToRelated(id) {
-      uni.navigateTo({
+      uni.redirectTo({
         url: '/pages/learn/detail?id=' + id
       })
     },
@@ -440,6 +585,15 @@ export default {
     color: $brand-primary;
     text-decoration: none;
     border-bottom: 1rpx solid $brand-primary;
+  }
+  
+  :deep(.markdown-image) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 32rpx 0;
+    border-radius: 12rpx;
   }
 }
 

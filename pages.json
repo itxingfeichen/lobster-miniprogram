@@ -21,6 +21,160 @@
       }
     },
     {
+      "path": "pages/learn/t001",
+      "style": {
+        "navigationBarTitleText": "OpenClaw环境搭建指南",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t002",
+      "style": {
+        "navigationBarTitleText": "Hello World Agent",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t003",
+      "style": {
+        "navigationBarTitleText": "AGENTS.md完全解读",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t004",
+      "style": {
+        "navigationBarTitleText": "OpenClaw命令速查",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t005",
+      "style": {
+        "navigationBarTitleText": "创建多功能Agent",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t006",
+      "style": {
+        "navigationBarTitleText": "Agent架构深度解析",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t007",
+      "style": {
+        "navigationBarTitleText": "工具系统",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t008",
+      "style": {
+        "navigationBarTitleText": "会话管理与上下文",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t009",
+      "style": {
+        "navigationBarTitleText": "记忆系统",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t010",
+      "style": {
+        "navigationBarTitleText": "技能机制",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t011",
+      "style": {
+        "navigationBarTitleText": "SOUL.md人格配置",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t012",
+      "style": {
+        "navigationBarTitleText": "自定义Agent开发",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t013",
+      "style": {
+        "navigationBarTitleText": "多Agent协作",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t014",
+      "style": {
+        "navigationBarTitleText": "工具集成开发",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t015",
+      "style": {
+        "navigationBarTitleText": "浏览器工具",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t016",
+      "style": {
+        "navigationBarTitleText": "Canvas画布",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t017",
+      "style": {
+        "navigationBarTitleText": "本地部署指南",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t018",
+      "style": {
+        "navigationBarTitleText": "云端部署",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t019",
+      "style": {
+        "navigationBarTitleText": "安全最佳实践",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t020",
+      "style": {
+        "navigationBarTitleText": "QQ Bot集成",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t021",
+      "style": {
+        "navigationBarTitleText": "Node节点",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/learn/t022",
+      "style": {
+        "navigationBarTitleText": "技能商店",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/learn/detail",
       "style": {
         "navigationBarTitleText": "教程详情",
