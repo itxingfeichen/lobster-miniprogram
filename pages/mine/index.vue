@@ -1,7 +1,7 @@
 <template>
   <view class="container">
-    <!-- 用户信息卡片 -->
-    <view class="user-card card">
+    <!-- 用户信息卡片 (暂时隐藏) -->
+    <!-- <view class="user-card card">
       <view class="user-header">
         <image class="avatar" src="/static/images/default-avatar.png" mode="aspectFill"></image>
         <view class="user-info">
@@ -23,11 +23,10 @@
           <text class="stat-value">{{ stats.codeSnippets }}</text>
           <text class="stat-label">收藏代码</text>
         </view>
-      </view>
-    </view>
+      </view> -->
 
-    <!-- 学习数据 -->
-    <view class="section card">
+    <!-- 学习数据 (暂时隐藏) -->
+    <!-- <view class="section card">
       <view class="section-header">
         <text class="section-title">学习数据</text>
         <view class="refresh-btn" @click="refreshStats">
@@ -43,7 +42,7 @@
           <text class="chart-value">{{ item.minutes }}分钟</text>
         </view>
       </view>
-    </view>
+    </view> -->
 
     <!-- 功能菜单 -->
     <view class="menu-section">

@@ -67,8 +67,8 @@
         </view>
       </view>
 
-      <!-- 4. 学习进度概览 -->
-      <view class="progress-section anim-slideUp" v-if="learnProgress">
+      <!-- 4. 学习进度概览 (暂时隐藏) -->
+      <view class="progress-section anim-slideUp" v-if="false">
         <view class="section-header">
           <text class="section-title">学习进度</text>
           <text class="section-extra">{{ learnProgress.completionRate }}%</text>
@@ -182,14 +182,13 @@ export default {
     async loadData() {
       this.loading = true
       try {
-        const [recommended, hot, progress] = await Promise.all([
+        const [recommended, hot] = await Promise.all([
           getRecommended(5),
-          getHotTutorials(5),
-          getLearnProgress()
+          getHotTutorials(5)
         ])
         this.recommendList = recommended || []
         this.hotList = hot || []
-        this.learnProgress = progress || null
+        this.learnProgress = null
       } catch (e) {
         console.error('首页数据加载失败:', e)
         uni.showToast({ title: '数据加载失败', icon: 'none' })
