@@ -45,72 +45,7 @@
     </view> -->
 
     <!-- 功能菜单 -->
-    <view class="menu-section">
-      <!-- 学习相关菜单 (暂时隐藏) -->
-      <!-- 
-      <view class="menu-group card">
-        <view class="menu-item" @click="navigateTo('learning-record')">
-          <view class="menu-left">
-            <text class="menu-icon">📚</text>
-            <text class="menu-text">学习记录</text>
-          </view>
-          <view class="menu-right">
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-        <view class="menu-item" @click="navigateTo('favorites')">
-          <view class="menu-left">
-            <text class="menu-icon">⭐</text>
-            <text class="menu-text">我的收藏</text>
-          </view>
-          <view class="menu-right">
-            <text class="badge" v-if="stats.favorites > 0">{{ stats.favorites }}</text>
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-        <view class="menu-item" @click="navigateTo('history')">
-          <view class="menu-left">
-            <text class="menu-icon">📜</text>
-            <text class="menu-text">浏览历史</text>
-          </view>
-          <view class="menu-right">
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-      </view>
-      -->
-
-      <view class="menu-group card">
-        <view class="menu-item" @click="navigateTo('settings')">
-          <view class="menu-left">
-            <text class="menu-icon">⚙️</text>
-            <text class="menu-text">设置</text>
-          </view>
-          <view class="menu-right">
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-        <view class="menu-item" @click="navigateTo('feedback')">
-          <view class="menu-left">
-            <text class="menu-icon">💬</text>
-            <text class="menu-text">意见反馈</text>
-          </view>
-          <view class="menu-right">
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-        <view class="menu-item" @click="showAbout">
-          <view class="menu-left">
-            <text class="menu-icon">ℹ️</text>
-            <text class="menu-text">关于我们</text>
-          </view>
-          <view class="menu-right">
-            <text class="menu-arrow">›</text>
-          </view>
-        </view>
-      </view>
-    </view>
-
+    <!-- 全部功能暂时隐藏 -->
     <!-- 版本信息 -->
     <view class="version-info">
       <text class="version-text">版本 {{ appVersion }}</text>
